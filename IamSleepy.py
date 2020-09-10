@@ -37,16 +37,22 @@ def getList(driver ,soup):
     driver.minimize_window()
     num = 1
     A = list()
+    f = open("CourseList.md" , "w+")
     for i in soup.find_all('a' , href=True):
         if i['href'].find('type=Course') != -1:
             A.append(i['href'])
             print(f"[{num}]",end = ' ')
             print(i.text)
+            f.write(f"[{num}] {i.text}")
             num = num + 1    
     print("[0] Exit")
     print("="*50)
+    f.close()
     print()
-    choice = input("[*] Select your course:\n[>] ")
+    if argv[2]:
+        choice = argv[2]
+    else:
+        choice = input("[*] Select your course:\n[>] ")
     if choice == "0":
         driver.close()
         print("[*] Bye..!!!")
@@ -141,6 +147,11 @@ def dynamic(driver):
     ed.key_down(Keys.TAB).key_down(Keys.RETURN).perform()
     # ed.key_down(Keys.RETURN).perform()
     screenshot(driver , "Final_Screenshot")
+    if argv[3]:
+        t = int(argv[3])
+        time.sleep(t*60)
+        x = 0
+    
     while x:
         print("="*50)
         print()

@@ -12,7 +12,7 @@
 
 
 # Stuff Left
-1. Granting Permissions
+1. Granting Permissions (Done)
 2. Creating Docker Container
-3. Closing tab
-4. Replace every time.sleep with wait
+3. Closing tab (Done)
+4. Replace every time.sleep with wait (Done)
